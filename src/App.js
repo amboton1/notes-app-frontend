@@ -15,8 +15,8 @@ class App extends Component {
     })
   }
 
-  handleChange = (event) => {
-    this.setState({ name: event.target.value })
+  handleChange = (value) => {
+    this.setState({ name: value });
   }
 
   handleSubmit = (event) => {
@@ -30,7 +30,7 @@ class App extends Component {
   render() {
     return (
       <section>
-        <PersonsInput onHandleSubmit={this.handleSubmit} onHandleChange={this.handleChange} />
+        <PersonsInput onHandleSubmit={this.handleSubmit} onChange={this.handleChange} />
         <PersonsList persons={this.state.persons} />
       </section>
     );

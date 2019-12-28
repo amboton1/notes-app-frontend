@@ -1,13 +1,17 @@
 import React from 'react';
 
 const PersonsInput = (props) => {
-    const { onHandleSubmit, onHandleChange } = props
+    const { onHandleSubmit, onChange } = props
+
+    const handleChange = (event) => {
+        onChange(event.target.value)
+    }
 
     return (
         <section>
             <form onSubmit={onHandleSubmit}>
             <label>
-                <input placeholder="Enter new user" type="text" name="name"  onChange={onHandleChange} />
+                <input placeholder="Enter new user" type="text" onChange={handleChange} />
                 <button type="submit">Add</button>
             </label>
             </form>
