@@ -2,8 +2,25 @@
   text-align: center;
 }
 
+.user-cnt {
+  margin: 1rem 1rem;
+}
+
+.input-user {
+  display: inline-flex;
+}
+
 .user-list {
-  display: block;
+  padding-left: 0;
+}
+
+.user-list li {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.btn-action {
+  margin: 0 .5rem;
 }
 
 .App-logo {

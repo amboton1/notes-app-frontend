@@ -1,18 +1,22 @@
 import React from 'react';
-import Buttons from './Buttons';
 import '../App.css'
+import PersonsName from './PersonName';
 
 const PersonsList = (props) => {
-    const { persons } = props;
+    const { persons, onChange, onDelete, onEditSubmit } = props;
 
     const mapPersons = () => {
         return persons.map(person => 
             <div key={person.id}>
-                <li key={person.id}>
-                {person.name}
-            </li>
-
-            <Buttons persons={persons} />
+                <li>
+                    <PersonsName
+                        id={person.id}
+                        name={person.name}
+                        onChange={onChange}
+                        onDelete={onDelete}
+                        onEditSubmit={name => onEditSubmit({id: person.id, name})}
+                    />
+                </li>
             </div>
         )
     }
