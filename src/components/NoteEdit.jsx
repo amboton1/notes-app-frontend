@@ -1,40 +1,40 @@
 import React, { Component } from 'react';
-import PersonsInput from './PersonsInput';
+import NoteAdding from './NoteAdding';
 
-class PersonName extends Component {
+class NoteEdit extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { editable: false, name: '' };
+        this.state = { editable: false, title: '' };
     };
 
     editMode = () => {
         this.setState({
             editable: !this.state.editable,
-            name: this.props.name,
+            title: this.props.title,
         })
     }
 
     onSubmit = () => {
         this.editMode();
-        this.props.onEditSubmit(this.state.name);
+        this.props.onEditSubmit(this.state.title);
     };
 
     delete = () => {
-        this.props.onDelete(this.props.id)
+        this.props.onDelete()
     }
 
-    setOnChange = name => this.setState({ name })
+    setOnChange = title => this.setState({ title })
 
     renderPerson = () =>
         this.state.editable ? (
-            <PersonsInput
-                name={this.state.name}
+            <NoteAdding
+                title={this.state.title}
                 onChange={this.setOnChange}
                 onHandleSubmit={this.onSubmit}
             />
         )
-        : this.props.name
+        : this.props.title
 
     render() {
         return (
@@ -47,4 +47,4 @@ class PersonName extends Component {
     }
 }
 
-export default PersonName;
+export default NoteEdit;

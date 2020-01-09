@@ -1,7 +1,7 @@
 import React from "react";
 
-const PersonsInput = props => {
-  const { name, onHandleSubmit, onChange } = props;
+const NoteAdding = props => {
+  const { title, onHandleSubmit, onChange } = props;
 
   const handleChange = event => {
     onChange(event.target.value);
@@ -10,15 +10,15 @@ const PersonsInput = props => {
   const handleSubmit = (event) => {
     event.preventDefault();
     onHandleSubmit();
-};
+  };
 
   return (
     <section>
       <form onSubmit={handleSubmit}>
           <input
-            placeholder="Enter new user"
+            placeholder="Enter new note"
             type="text"
-            value={name}
+            value={title}
             onChange={handleChange}
           />
       </form>
@@ -26,4 +26,4 @@ const PersonsInput = props => {
   );
 };
 
-export default PersonsInput;
+export default NoteAdding;
