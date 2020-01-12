@@ -26,7 +26,8 @@ class Notes extends Component {
     { headers: {"Authorization" : `Bearer ${this.state.token}`, 'Accept' : 'application/json'} }
     ).then((res) => {
       this.setState({
-        notes: this.state.notes.concat({ _id: res.data._id, title: this.state.title, owner: this.state.token })
+        notes: this.state.notes.concat({ _id: res.data._id, title: this.state.title, owner: this.state.token }),
+        title: ""
       });
     });
   };
@@ -73,7 +74,7 @@ class Notes extends Component {
                 onChange={this.handleChange}
               />
 
-              <button onClick={this.handleSubmit} type="submit">
+              <button className="note-add" onClick={this.handleSubmit} type="submit">
                 Add
               </button>
 

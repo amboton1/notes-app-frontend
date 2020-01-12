@@ -16,6 +16,7 @@ const NoteAdding = props => {
     <section>
       <form onSubmit={handleSubmit}>
           <input
+            className="input-field"
             placeholder="Enter new note"
             type="text"
             value={title}

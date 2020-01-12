@@ -34,14 +34,14 @@ class NoteEdit extends Component {
                 onHandleSubmit={this.onSubmit}
             />
         )
-        : this.props.title
+        : <span>{this.props.title}</span>
 
     render() {
         return (
             <>
                 { this.renderPerson() }
                 <button className="btn-action" onClick={this.editMode}>Edit</button>
-                <button className="btn-action" onClick={this.delete}>Delete</button>
+                <button className="btn-action delete" onClick={this.delete}>Delete</button>
             </>
         );
     }

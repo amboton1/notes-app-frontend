@@ -23,8 +23,29 @@
   margin: 1rem 0;
 }
 
-.btn-action {
+.btn-action, .note-add {
+  display: inline-block;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  border-color: #007bff;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: .5rem;
+  vertical-align: middle;
   margin: 0 .5rem;
+}
+
+.delete {
+  background-color: red;
+  border: none;
+}
+
+.note-add {
+  background-color: darkgreen;
 }
 
 /* Navbar */
@@ -52,27 +73,38 @@
 .navbar .blue {
   padding: .45rem;
   color: white;
-  background: #4C8FFB;
+  background: #000000;
+  border-radius: 15px;
   border: 1px #3079ED solid;
   box-shadow: inset 0 1px 0 #80B0FB;
   cursor: pointer;
   font-weight: bold;
+  width: 85px;
 }
 
 .blue:hover {
+  color: black;
   border: 1px #2F5BB7 solid;
-  box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
-  background: rgb(4, 10, 6);
+  box-shadow: 0 1px 1px rgb(0, 0, 0), inset 0 1px 0 #5A94F1;
+  background: rgb(255, 255, 255);
 }
 
 .blue:active {
   box-shadow: inset 0 2px 5px #2370FE;   
 }
 
-
-
 .bg-primary {
   background-color: var(--primary-color);
+}
+
+.input-field {
+  box-sizing: border-box;
+	border: 1px solid #C2C2C2;
+	box-shadow: 1px 1px 4px #EBEBEB;
+  border-radius: 3px;
+  margin-right: .7rem;
+	padding: 7px;
+	outline: none;
 }
 
 .App-logo {
