@@ -26,7 +26,7 @@ class LoginBox extends Component {
 	    password: this.state.password
     })
     .then((res, req) => {
-      localStorage.setItem('token', res.data.token)
+      sessionStorage.setItem('token', res.data.token)
       this.props.onLogin(true);
     })
     .catch((e) => {

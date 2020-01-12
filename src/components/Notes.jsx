@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import restClient from "../restClient";
 import NotesList from "./NotesList";
 import NoteAdding from "./NoteAdding";
+import Navbar from "./header/Navbar";
 
 class Notes extends Component {
   constructor(props) {
     super(props);
-    this.state = { notes: [], title: "", isSuccessLogin: false, token: localStorage.getItem('token') };
+    this.state = { notes: [], title: "", isSuccessLogin: false, token: sessionStorage.getItem('token') };
   }
 
   componentDidMount() {
@@ -46,6 +47,12 @@ class Notes extends Component {
     })
   }
 
+  onLogout = () => {
+    this.setState({ token: sessionStorage.removeItem('token') })
+    window.location.href = '/users/login';
+    console.log(this.state.token)
+  }
+
   switchLogin = () => {
     this.setState({ isLoginOpen: true, isRegisterOpen: false })
   }
@@ -56,29 +63,32 @@ class Notes extends Component {
 
   render() {
     return (
-        <section className="user-cnt">
-        <div className="input-user">
-            <NoteAdding
-              title={this.state.title}
-              onHandleSubmit={this.handleSubmit}
-              onChange={this.handleChange}
-            />
+        <section>
+          <Navbar onLogout={this.onLogout} />
+          <section className="user-cnt">
+          <div className="input-user">
+              <NoteAdding
+                title={this.state.title}
+                onHandleSubmit={this.handleSubmit}
+                onChange={this.handleChange}
+              />
 
-            <button onClick={this.handleSubmit} type="submit">
-              Add
-            </button>
+              <button onClick={this.handleSubmit} type="submit">
+                Add
+              </button>
 
-        </div>
+          </div>
 
-        <NotesList
-          title={this.state.title}
-          notes={this.state.notes}
-          onEditSubmit={this.onEdit}
-          onChange={this.handleChange}
-          onDelete={this.onDelete}
-        />
+          <NotesList
+            title={this.state.title}
+            notes={this.state.notes}
+            onEditSubmit={this.onEdit}
+            onChange={this.handleChange}
+            onDelete={this.onDelete}
+          />
 
-      </section>
+          </section>
+        </section>
     );
   }
 }
